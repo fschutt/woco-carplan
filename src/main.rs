@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 #[macro_use]
 extern crate serde_derive;
 #[macro_use]
@@ -95,7 +97,7 @@ fn set_up_logging(log_file_path: &str) -> Option<()> {
 
 /// Injects the CSS styles into the HTML
 fn inject_styles(html: &str, styles: &[&str]) -> String {
-    let combined_css = format!(r#"<style type="text/css">{}</style>"#, styles.join("\r\n"));
+    let combined_css = format!(r#"<style type="text/css" style="display: none;">{}</style>"#, styles.join("\r\n"));
     html.replace("{{styles}}", &combined_css)
 }
 

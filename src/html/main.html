@@ -2,10 +2,49 @@
 <html>
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
         {{styles}}
+        <!-- <link rel="stylesheet" type="text/css" href="../css/main.css"> -->
     </head>
     <body>
-        <h1 id="test">Woco CarPlan (tm)</h1>
-        <input type = "file"></input>
+        <div id="header" class="gradient_grey">
+            <div id="logo">
+                <h1 id="main">CarPlan</h1>
+                <div id="version_wrapper">
+                    <h2 id="version" class="gradient_green">v 1.0.2</h2>
+                </div>
+            </div>
+            <div id="info" class="gradient_blue">
+                <p>Hilfe (F1)</p>
+            </div>
+        </div>
+        <!--
+        <div id="menu_bar">
+            <div class="input_label">
+                <input type="file" id="open_file"/>
+                <label for="open_file">Projekt laden</label>
+            </div>
+            <div class="input_label">
+                <input type="button" id="save_file" />
+                <label for="save_file">Projekt speichern</label>
+            </div>
+        </div>
+        -->
+        <div id="main_container">
+            <div id ="sidebar" class="gradient_dark_grey">
+                <h3>Projekte</h3>
+                <ul>
+                    <li>Deck 1</li>
+                    <li>Deck 2</li>
+                    <li>Deck 3</li>
+                </ul>
+            </div>
+            <div id="timetable"></div>
+        </div>
     </body>
 </html>
