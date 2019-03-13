@@ -38,7 +38,7 @@ fn web_view_cb<'a>(web_view: &mut WebView<'a, CarPlanData>, json: &str) -> Resul
     })?;
 
     match cmd {
-        Cmd::Init => { println!("init!"); },
+        Cmd::Init => {  },
         Cmd::Log { text } => { println!("{}", text); },
     }
 
@@ -51,10 +51,6 @@ fn web_view_cb<'a>(web_view: &mut WebView<'a, CarPlanData>, json: &str) -> Resul
 
 /// Opens a window with the given URL, returns if the window has launched successfully
 fn open_window(html: &str, title: &str, data: CarPlanData) -> Option<CarPlanData> {
-
-    // use urlencoding::encode;
-
-    // let url = format!("data:text/html,{}", encode(html));
 
     #[cfg(debug_assertions)]
     let debug = true;
@@ -95,10 +91,15 @@ fn set_up_logging(log_file_path: &str) -> Option<()> {
     Some(())
 }
 
-/// Injects the CSS styles into the HTML
+/// Injects the CSS and JS styles into the HTML
 fn inject_styles(html: &str, styles: &[&str]) -> String {
-    let combined_css = format!(r#"<style type="text/css" style="display: none;">{}</style>"#, styles.join("\r\n"));
-    html.replace("{{styles}}", &combined_css)
+    let combined_css = format!("<style type=\"text/css\" style=\"display: none;\">{}</style>", styles.join("\r\n"));
+    let html = html.replace("{{styles}}", &combined_css);
+    let combined_js = concat!(include_str!("./js/main.js"), include_str!("./js/main_user.js"));
+    let html = html.replace("{{script}}", &format!("<script type=\"text/javascript\" style=\"display: none;\">{}</script>", combined_js));
+
+    println!("html:\r\n{}", html);
+    html
 }
 
 fn main() {

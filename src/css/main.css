@@ -2,8 +2,6 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
 }
 
@@ -55,6 +53,11 @@ style {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
 }
 
+body, html, #header, #header > *, #main_container {
+    display: flex;
+    flex-direction: column;
+}
+
 #header, #header > #logo, #header > #info, #menu_bar {
     flex-direction: row;
 }
@@ -103,32 +106,26 @@ style {
     flex-direction: column;
 }
 
-#menu_bar {
-    padding: 5px;
-}
-
-#menu_bar > .input_label {
-    width: 200px;
-    margin-right: 20px;
-}
-
-#menu_bar > .input_label > *:hover {
-    cursor: pointer;
-}
-
 html, body {
     height: 100%;
 }
 
+input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid grey;
+    vertical-align: top;
+}
+
 #main_container {
     display: flex;
-    background: grey;
+    background: white;
     height: 100%;
     flex-direction: row;
 }
 
 #main_container > #sidebar {
-    width: 200px;
+    width: 300px;
     background-color: black;
     color: white;
     padding: 20px 10px;
@@ -148,12 +145,85 @@ html, body {
 #main_container > #sidebar > ul > li {
     font-size: 0.9rem;
     margin-top: 5px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
+    background: #24262b;
+    cursor: pointer;
 }
 
-#main_container > #sidebar > ul > li:hover {
-    cursor: pointer;
+#main_container > #sidebar > ul > li:hover, #main_container > #sidebar > ul > li.active {
     background: white;
     color: black;
+}
+
+#timetable {
+    overflow-y: scroll;
+}
+
+#timetable, table, tbody, tr, td {
+    width: 100%;
+}
+
+#timetable {
+    height: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 5px;
+}
+
+.date, .date p {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+}
+
+.date p.align-right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+th {
+    font-size: 16px;
+}
+
+td .input_checkbox {
+    cursor: pointer;
+}
+
+td .input_number, td .input_date_hour {
+    width: 50px;
+}
+td .input_vehicle_id {
+    width: 80px;
+}
+td .input_department {
+    width: 80px;
+}
+td {
+    font-size: 14px;
+}
+td, th {
+  vertical-align: baseline;
+  text-align: left;
+}
+td {
+    padding: 2px;
+}
+tr, th, td {
+    border: 1px solid grey;
+    vertical-align: top;
+}
+
+td input {
+    height: 20px;
+}
+
+table {
+    background: white;
 }

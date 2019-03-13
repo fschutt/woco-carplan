@@ -8,43 +8,36 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
-        {{styles}}
-        <!-- <link rel="stylesheet" type="text/css" href="../css/main.css"> -->
+        {{styles}} {{script}}
+    <!--
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <script type="text/javascript" src="../js/main_user.js"></script>
+    -->
     </head>
     <body>
         <div id="header" class="gradient_grey">
             <div id="logo">
                 <h1 id="main">CarPlan</h1>
                 <div id="version_wrapper">
-                    <h2 id="version" class="gradient_green">v 1.0.2</h2>
+                    <h2 id="version" class="gradient_green">WocoGroup Salmünster</h2>
                 </div>
             </div>
             <div id="info" class="gradient_blue">
                 <p>Hilfe (F1)</p>
             </div>
         </div>
-        <!--
-        <div id="menu_bar">
-            <div class="input_label">
-                <input type="file" id="open_file"/>
-                <label for="open_file">Projekt laden</label>
-            </div>
-            <div class="input_label">
-                <input type="button" id="save_file" />
-                <label for="save_file">Projekt speichern</label>
-            </div>
-        </div>
-        -->
         <div id="main_container">
             <div id ="sidebar" class="gradient_dark_grey">
-                <h3>Projekte</h3>
+                <h3>Tools</h3>
                 <ul>
-                    <li>Deck 1</li>
-                    <li>Deck 2</li>
-                    <li>Deck 3</li>
+                    <li id="select_vehicles" onclick="select_vehicles_view()">Fahrzeuge</li>
+                    <li id="select_workers" onclick="select_workers_view()">Mitarbeiter</li>
+                    <li id="select_trip_calendar" onclick="select_trip_calendar_view()">Fahrten (Kalendar)</li>
                 </ul>
             </div>
-            <div id="timetable"></div>
+            <div id="timetable">
+
+            </div>
         </div>
     </body>
 </html>
