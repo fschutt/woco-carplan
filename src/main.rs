@@ -97,8 +97,6 @@ fn inject_styles(html: &str, styles: &[&str]) -> String {
     let html = html.replace("{{styles}}", &combined_css);
     let combined_js = concat!(include_str!("./js/main.js"), include_str!("./js/main_user.js"));
     let html = html.replace("{{script}}", &format!("<script type=\"text/javascript\" style=\"display: none;\">{}</script>", combined_js));
-
-    println!("html:\r\n{}", html);
     html
 }
 
